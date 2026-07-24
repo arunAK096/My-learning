@@ -31,17 +31,25 @@ class LinkedList:
             self.tail = new_node
 
         self.length += 1
-        
-    def prepand(self, value):
-        new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        
+                 
+    
+    def get(self, index):
+        if index < -1 or index >= self.length:
+            return None
+        if index == -1:
+            return self.tail
+        current = self.head
+        for _ in range(index):
+            current = current.next
+        return current
+
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
 
 
 my_list = LinkedList()
@@ -52,7 +60,6 @@ my_list.append(30)
 my_list.append(40)
 my_list.append(50)
 my_list.append(60)
-
 print(my_list)
-my_list.prepand(10)
+print(my_list.set_value(3,70)) 
 print(my_list)

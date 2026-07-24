@@ -31,51 +31,17 @@ class LinkedList:
             self.tail = new_node
 
         self.length += 1
-        
-    def prepand(self, value):
-        new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        
-    def insert(self, index, value):
-        new_node = Node(value)
-        if index < 0 or index > self.length:
-            return False
-        
-        elif self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        
-        elif new_node == 0:
-            new_node.next = self.head
-            self.head = new_node
-            
-        else:
-            temp = self.head
-            for _ in range(index - 1):
-                temp = temp.next
-            new_node.next = temp.next
-            temp.next = new_node
-        self.length += 1
-        
-    def travse(self):
+                 
+    
+    def search(self, index):
+        if index < 0 or index >= self.length:
+            return None
         current = self.head
-        while current is not None:
-            print(current.value)
+        for _ in range(index):
             current = current.next
-            
-    def search(self, target):
-        current = self.head
-        while current is not None:
-            if current.value == target:
-                return True
-            current = current.next
-        return False
+        return current.value
+
+
 
 
 
@@ -88,4 +54,4 @@ my_list.append(40)
 my_list.append(50)
 my_list.append(60)
 print(my_list)
-print(my_list.search(70)) 
+print(my_list.search(3)) 

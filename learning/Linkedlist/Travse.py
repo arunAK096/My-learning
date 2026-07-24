@@ -31,38 +31,7 @@ class LinkedList:
             self.tail = new_node
 
         self.length += 1
-        
-    def prepand(self, value):
-        new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        
-    def insert(self, index, value):
-        new_node = Node(value)
-        if index < 0 or index > self.length:
-            return False
-        
-        elif self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        
-        elif new_node == 0:
-            new_node.next = self.head
-            self.head = new_node
-            
-        else:
-            temp = self.head
-            for _ in range(index - 1):
-                temp = temp.next
-            new_node.next = temp.next
-            temp.next = new_node
-        self.length += 1
-        
+                 
     def travse(self):
         current = self.head
         while current is not None:
