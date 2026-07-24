@@ -21,16 +21,25 @@ class LinkedList:
             self.tail = new_node
 
         self.length += 1
+        
+    def __str__(self):
+        tempnode = self.head
+        result = ""
+        while tempnode is not None:
+            result += str(tempnode.value)
+            if tempnode.next is not None:
+                result += " -> "
+            tempnode = tempnode.next
+        return result
 
 
 my_list = LinkedList()
 
 
 my_list.append(20)
-
 my_list.append(30)
+my_list.append(40)
+my_list.append(50)
+my_list.append(60)
 
-# Print values to verify
-print("Head Node Value:", my_list.head.value)
-print("Tail Node Value:", my_list.tail.value) 
-print("Total List Length:", my_list.length)  
+print(my_list)
