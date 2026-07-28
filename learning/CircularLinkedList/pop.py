@@ -51,6 +51,36 @@ class CircularSinglyLinkedList:
             result += " -> "
         return result
     
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        pop_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.tail.next = self.head
+            pop_node.next = None
+        self.length -= 1
+        return pop_node
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        popNode = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            temp = self.head
+            while temp.next != self.tail:
+                temp = temp.next
+            temp.next = self.head
+            self.tail = temp
+            popNode.next = None
+        self.length -= 1
+        return popNode
     
 cslist = CircularSinglyLinkedList(10)
 cslist.append(20)

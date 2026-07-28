@@ -51,6 +51,14 @@ class CircularSinglyLinkedList:
             result += " -> "
         return result
     
+    def deleteAll(self):
+        if self.length == 0:
+            return
+        self.tail.next = None
+        self.head = None
+        self.tail = None
+        self.length = 0
+    
     
 cslist = CircularSinglyLinkedList(10)
 cslist.append(20)

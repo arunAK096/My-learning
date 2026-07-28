@@ -51,11 +51,31 @@ class CircularSinglyLinkedList:
             result += " -> "
         return result
     
+    def search(self, target):
+        current = self.head
+        while current is not None:
+            if current.value == target:
+                return True
+            current = current.next
+            if current == self.head:
+                break
+        return False
     
-cslist = CircularSinglyLinkedList(10)
-cslist.append(20)
-cslist.append(30)   
-cslist.append(40)      
-print(cslist)
-cslist.prepand(5)
-print(cslist)
+    def get(self, index):
+        if index < -1 or index >= self.length:
+            return None
+        if index == -1:
+            return self.tail.value
+        current = self.head
+        for _ in range(index):
+            current = current.next
+        return current
+    
+    def set_value(self, index, value):
+            temp = self.get(index)
+            if temp:
+                temp.value = value
+                return True
+            return False
+    
+

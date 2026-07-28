@@ -51,6 +51,33 @@ class CircularSinglyLinkedList:
             result += " -> "
         return result
     
+    def insert(self, index, value):
+
+        if index < 0 or index > self.length:
+            raise Exception("Index out of range")
+        newNode = Node(value)
+        if index == 0:
+            if self.length == 0:
+                self.head = newNode
+                self.tail = newNode
+                newNode.next = newNode
+            else:
+                newNode.next = self.head
+                self.head = newNode
+                self.tail.next = newNode
+              
+        elif index == self.length:
+            self.tail.next = newNode
+            newNode.next = self.head
+            self.tail = newNode
+        else:
+            temp = self.head
+            for _ in range(index - 1):
+                temp = temp.next
+            newNode.next = temp.next
+            temp.next = newNode
+        self.length += 1
+    
     
 cslist = CircularSinglyLinkedList(10)
 cslist.append(20)

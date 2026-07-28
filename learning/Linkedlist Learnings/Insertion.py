@@ -51,7 +51,7 @@ class LinkedList:
             self.head = new_node
             self.tail = new_node
         
-        elif new_node == 0:
+        elif index == 0:
             new_node.next = self.head
             self.head = new_node
             
