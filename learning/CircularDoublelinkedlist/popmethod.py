@@ -70,7 +70,7 @@ class CircularDoublyLinkedList:
         else:
             currentNode = self.tail
             for _ in range(self.length - 1, index, -1):
-                currentNode = currentNode.prev
+                currentNode = currentNode.previous
         return currentNode
     
     def pop(self):

@@ -70,7 +70,7 @@ class CircularDoublyLinkedList:
         else:
             currentNode = self.tail
             for _ in range(self.length - 1, index, -1):
-                currentNode = currentNode.prev
+                currentNode = currentNode.previous
         return currentNode
     
     def pop_first(self):
@@ -82,7 +82,7 @@ class CircularDoublyLinkedList:
             self.tail = None
         else:
             self.head = self.head.next
-            pop_node.prev = None
+            pop_node.previous = None
             pop_node.next = None
             self.head.prev = self.tail
             self.tail.next = self.head
