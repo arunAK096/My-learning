@@ -35,22 +35,23 @@ class Queue:
             self.linkedList.tail = newNode
             
     def isEmpty(self):
-        if self.linkedList.head == None:
-            return True
-        else:
-            return False
+        return self.linkedList.head is None
         
     def dequeue(self):
         if self.isEmpty():
             return "Queue is empty"
+
+        tempNode = self.linkedList.head
+
+        if self.linkedList.head == self.linkedList.tail:
+            self.linkedList.head = None
+            self.linkedList.tail = None
         else:
-            tempNode = self.linkedList.head
-            if self.linkedList.head == self.linkedList.tail:
-                self.linkedList.head = self.linkedList.tail = None
-            else:
-                self.linkedList.head = self.linkedList.head.next
-                tempNode.next = None
-                return tempNode
+            self.linkedList.head = self.linkedList.head.next
+            tempNode.next = None
+
+        return tempNode
+                
             
     def peek(self):
         if self.isEmpty():
@@ -63,9 +64,4 @@ class Queue:
             
             
 cutomqueue = Queue()
-cutomqueue.enqueue(1)
-cutomqueue.enqueue(2)
-cutomqueue.enqueue(3)
-print(cutomqueue)
-cutomqueue.dequeue()
-print(cutomqueue.peek())
+
