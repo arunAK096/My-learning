@@ -32,7 +32,7 @@ def heapifyextract(rootNode, index, heaptype):
                 rootNode.customlist[leftIndex] = temp
             return
     else:
-        if heaptype == "Min":
+        if heaptype == "Max":
             if rootNode.customlist[leftIndex] < rootNode.customlist[rightIndex]:
                 swapChild = leftIndex
             else:
