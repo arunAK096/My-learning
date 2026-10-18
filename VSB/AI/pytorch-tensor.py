@@ -94,8 +94,8 @@ print(b)
 
 #When a CPU tensor and a NumPy array share memory, changing one can change what you see in the other.
 a = torch.tensor([1.0, 2.0, 3.0])
-b = a.numpy()
-
+b = a.numpy().copy()
+print(a) 
 a.add_(1)
 
 print(a)  # tensor([2., 3., 4.])
