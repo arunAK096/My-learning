@@ -1,0 +1,6 @@
+# Machine Learning datasets
+*.tar.gz
+*.zip
+
+# Dataset folders
+VSB/AI/data/
