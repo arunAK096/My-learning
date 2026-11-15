@@ -4,3 +4,6 @@
 
 # Dataset folders
 VSB/AI/data/
+
+# CIFAR-10 dataset
+data/
